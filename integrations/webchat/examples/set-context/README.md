@@ -1,5 +1,5 @@
 <!--- update the XXXXXXX portion of the main title --->
-# TODO: XXXXXXX for Watson Assistant web chat
+# XXXXXXX for Watson Assistant web chat
 
 This code is for extending the Watson Assistant web chat. If you are new to developing with web chat, please start with the [Getting Started tutorial](https://ibm.com). The code in this folder is heavily commented with links and references to the web chat APIs used.
 

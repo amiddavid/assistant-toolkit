@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TODO: Extension with custom response - Watson Assistant web chat toolkit</title>
+</head>
+<body>
+<script>
+  function customResponseHandler(event) {
+    const { message, element } = event.data;
+
+    element.innerHTML = `
+    <div>Hello custom</div>;
+    `;
+  }
+
+  function onLoad(instance) {
+    // Listen for the customResponse event that will allow us to create content for the custom response when one is
+    // received. See https://web-chat.global.assistant.watson.cloud.ibm.com/docs.html?to=api-events#summary for more
+    // about our events.
+    instance.on({ type: 'customResponse', handler: customResponseHandler });
+    instance.render();
+  }
+
+  // A web chat configuration options object as documented at
+  // https://web-chat.global.assistant.watson.cloud.ibm.com/docs.html?to=api-configuration#configurationobject.
+  window.watsonAssistantChatOptions = {
+    integrationID: "23336f00-e47c-4ac0-846e-0889579445bf",
+    region: "us-south",
+    serviceInstanceID: "9a3613d2-3ce6-4928-8eb6-4d659d87ae68",
+    disableSessionHistory: true, // TODO: Remove
+    onLoad: onLoad,
+  };
+  setTimeout(function(){const t=document.createElement('script');t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";document.head.appendChild(t);});
+</script>
+
+</body>
+</html>
