@@ -29,6 +29,21 @@ export  function putTest (req, res, next) {
 export function preWebhook (req, res, next) {
   console.log('In route - preWebhook');
  
+  const payload = req.body.payload;
+  if (!payload.input.options){
+    payload.input.options= {};
+  }
+  payload.input.options.debug=true;
+  
+ 
+  res.json(req.body);
+     
+};
+
+
+export function preWebhookSentiment (req, res, next) {
+  console.log('In route - preWebhook');
+ 
 
   const nlu = new NaturalLanguageUnderstandingV1({
     // See: https://github.com/watson-developer-cloud/node-sdk#authentication
@@ -64,6 +79,7 @@ export function preWebhook (req, res, next) {
 
 export function postWebhook (req, res, next) {
    console.log('In route - postWebhook');
+   console.log(JSON.stringify(req.body));
    res.json(req.body);
  };
 

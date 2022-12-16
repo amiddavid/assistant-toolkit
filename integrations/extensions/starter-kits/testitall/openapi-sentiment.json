@@ -1,0 +1,65 @@
+{
+  "openapi" : "3.0.3",
+  "info" : {
+    "title" : "Mock Integration- Localhost",
+    "version" : "1.0.0",
+    "contact" : { }
+  },
+  "servers" : [  {
+    "url" : "https://{ngrok_uuid}.ngrok.io",
+    "variables" : {
+      "ngrok_uuid" : {
+        "default" : "3fb6-2a0d-6fc2-4380-3c00-3111-5ae5-c50f-224",
+        "description" : "uuid provided by ngrok"
+      }
+    }
+  }, {
+    "url" : "http://{host}:4000",
+    "variables" : {
+      "host" : {
+        "default" : "localhost",
+        "description" : "testing our support for server variables"
+      }
+    }
+  } ],
+ 
+  "paths" : {
+    "/hackathon/sentiment" : {
+      "get" : {
+        "tags" : [ "API" ],
+        "summary" : "NLU Sentiment",
+        "description" : "NLU Sentiment",
+        "operationId" : "getSentiment",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "query_param1",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }],
+        "responses" : {
+          "200" : {
+            "description" : "GET sentiment",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "sentiment" : {
+                      "type" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+     
+    }
+  },
+  "tags" : [ {
+    "name" : "API"
+  } ]
+}

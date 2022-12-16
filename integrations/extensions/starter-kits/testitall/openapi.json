@@ -458,7 +458,21 @@
         "operationId" : "testParams",
         "parameters" : [ {
           "in" : "query",
-          "name" : "query_param",
+          "name" : "query_param1",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        },{
+          "in" : "query",
+          "name" : "query_param2",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        },{
+          "in" : "query",
+          "name" : "query_param3",
           "required" : false,
           "schema" : {
             "type" : "string"
