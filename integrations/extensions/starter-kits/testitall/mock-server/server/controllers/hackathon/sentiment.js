@@ -11,7 +11,7 @@ export function sentiment (req, res, next) {
   
     const nlu = new NaturalLanguageUnderstandingV1({
       // See: https://github.com/watson-developer-cloud/node-sdk#authentication
-      authenticator: new IamAuthenticator({ apikey: 'H4ieBlyJOWN0fX28U44tnRXHAunzIMz3xV3nQ8reCapv' }),
+      authenticator: new IamAuthenticator({ apikey: 'update key' }),
       version: '2019-07-12',
     });
     
